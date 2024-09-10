@@ -26,7 +26,7 @@ class TestFilmsList:
     def test_get_film_list_verify_film_fields_integrity(self):
         resp = FilmService().request_get_film_list()
         logger.info(f"resp: {resp}")
-        resp_dict = resp.dict()
+        resp_dict = resp.model_dump()
         for field in film_list_required_fields:
             assert field in resp_dict
 
@@ -34,7 +34,7 @@ class TestFilmsList:
     def test_get_film_list_verify_film_lists(self):
         resp = FilmService().request_get_film_list()
         logger.info(f"resp: {resp}")
-        resp_dict = resp.dict()
+        resp_dict = resp.model_dump()
         for field, value in resp_dict.items():
             assert value == film_list[field]
 
@@ -70,7 +70,7 @@ class TestFilmsList:
     def test_get_film_list_options_request(self):
         resp = FilmService().request_options_film_list()
         logger.info(f"resp: {resp}")
-        resp_dict = resp.dict()
+        resp_dict = resp.model_dump()
         for field, value in resp_dict.items():
             assert value == film_list_options_resp[field]
 

@@ -29,15 +29,15 @@ class TestFilmDetail:
     def test_get_film_detail_verify_film_fields_integrity(self):
         resp = FilmService().request_get_film_detail("1")
         logger.info(f"resp: {resp}")
-        resp_dict = resp.dict()
+        resp_dict = resp.model_dump()
         for field in resp_dict:
             assert field in film_detail_required_fields
 
     @pytest.mark.detail
-    def test_verify_film_details(self):
+    def test_get_film_detail_verify_film_details(self):
         resp = FilmService().request_get_film_detail("1")
         logger.info(f"resp: {resp}")
-        resp_dict = resp.dict()
+        resp_dict = resp.model_dump()
         for field, value in resp_dict.items():
             assert value == film_1_details[field]
 
@@ -68,7 +68,7 @@ class TestFilmDetail:
     def test_get_film_detail_verify_associated_resources(self):
         resp = FilmService().request_get_film_detail("1")
         logger.info(f"resp: {resp}")
-        resp_dict = resp.dict()
+        resp_dict = resp.model_dump()
 
         associated_resources = ["species", "starships", "vehicles", "characters", "planets"]
 
@@ -87,7 +87,7 @@ class TestFilmDetail:
     def test_get_film_detail_options_request(self):
         resp = FilmService().request_options_film_detail("1")
         logger.info(f"resp: {resp}")
-        resp_dict = resp.dict()
+        resp_dict = resp.model_dump()
         for field, value in resp_dict.items():
             assert value == film_detail_options_resp[field]
 

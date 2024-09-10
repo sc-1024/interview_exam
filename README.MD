@@ -65,11 +65,11 @@ api_automation/
 ### Running the tests
 1. Run all tests
     ```bash
-    poetry run pytest -s -vv tests
+    poetry run pytest -vv tests
     ```
 2. Run tests with specific marker
     ```bash
-    poetry run pytest -s -vv -m <marker> tests
+    poetry run pytest -vv -m <marker> tests
     ```
 
 ### Test Report
