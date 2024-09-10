@@ -65,16 +65,19 @@ api_automation/
 ### Running the tests
 1. Run all tests
     ```bash
+    cd api_automation/star_wars
     poetry run pytest -vv tests
     ```
 2. Run tests with specific marker
     ```bash
+    cd api_automation/star_wars
     poetry run pytest -vv -m <marker> tests
     ```
 
 ### Test Report
 1. Run all tests with allure command
     ```bash
+    cd api_automation/star_wars
     poetry run pytest -vv tests --alluredir=./reports --clean-alluredir
     ```
 2. Generate allure report
