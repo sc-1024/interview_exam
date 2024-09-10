@@ -6,12 +6,12 @@ def print_hollow_triangle(side_length: str) -> None:
     try:
         side_length = int(side_length)
     except ValueError:
-        print('Please enter a valid integer')
+        print('請輸入正整數')
         return
 
     if side_length < 2:
         try:
-            raise ValueError('Side length must be greater than 1')
+            raise ValueError('邊長請輸入大於 1 的正整數')
         except ValueError as e:
             print(e)
             return
@@ -34,5 +34,5 @@ def print_hollow_triangle(side_length: str) -> None:
 
 
 if __name__ == '__main__':
-    user_input_side_length = input('Please enter the side length of the triangle: ')
+    user_input_side_length = input('請輸入三角形的邊長: ')
     print_hollow_triangle(user_input_side_length)
