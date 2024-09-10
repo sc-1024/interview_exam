@@ -1,3 +1,21 @@
+## CathayBK Exam
+
+## Logic Test
+```
+logic/
+├── hollow_triangle.py
+└── sort_num.py
+```
+### How to run the logic test
+1. Run the hollow triangle logic test
+    ```bash
+    python logic/hollow_triangle.py
+    ```
+2. Run the sort number logic test
+    ```bash
+    python logic/sort_num.py
+    ```
+
 ## API Automation
 
 ### Description
@@ -13,6 +31,9 @@ api_automation/
 ├── configs/
 │   └── config_template.py       # Template for configuration file
 ├── star_wars/
+│   ├── data/
+│   │   └── films/
+│   │       └── test_data.py     # Sample data for films
 │   ├── models/
 │   │   └── films.py             # Pydantic model for films
 │   ├── service/
