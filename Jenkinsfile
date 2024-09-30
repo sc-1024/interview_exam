@@ -14,6 +14,10 @@ pipeline {
                     apt-get update
                     apt-get install -y python3 python3-pip
                     curl -sSL https://install.python-poetry.org | python3 -
+                    export PATH=$PATH:$HOME/.local/bin
+                    poetry --version
+                    cd api_automation/star_wars
+                    poetry install --no-root
                 '''
             }
         }
