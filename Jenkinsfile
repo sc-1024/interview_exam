@@ -20,9 +20,13 @@ pipeline {
             steps {
                 script {
                     dockerImage.inside {
-                        sh 'cd api_automation/star_wars'
-                        sh 'poetry run pytest -v'
+                        sh '''
+                            cd api_automation/star_wars
+                            poetry run pytest -v
+                        '''
                     }
                 }
             }
         }
+    }
+}
