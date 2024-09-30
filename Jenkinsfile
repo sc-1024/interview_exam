@@ -8,23 +8,21 @@ pipeline {
             }
         }
 
-        stage('Install Python3') {
+        stage('Install Python3 and Poetry') {
             steps {
                 sh '''
                     apt-get update
                     apt-get install -y python3 python3-pip
+
                     curl -sSL https://install.python-poetry.org | python3 -
-                    export PATH=$PATH:$HOME/.local/bin
+
+                    export PATH="$HOME/.local/bin:$PATH"
+
                     poetry --version
+
                     cd api_automation/star_wars
                     poetry install --no-root
-                '''
-            }
-        }
 
-        stage('Run Tests') {
-            steps {
-                sh '''
                     poetry run pytest -v
                 '''
             }
