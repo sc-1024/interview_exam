@@ -60,13 +60,7 @@ class Logger(object):
 
     @staticmethod
     def change_text_by_logger(msg):
-        frame = inspect.stack()[2]
-        module = inspect.getmodule(frame[0])
-        info = inspect.getframeinfo(frame[0])
-
-        text = "[{module}@line:{lineno}][{msg}]".format(
-            module=module.__name__,
-            lineno=info.lineno,
+        text = "[{msg}]".format(
             msg=msg,
         )
         return text
