@@ -1,0 +1,21 @@
+version: '3.7'
+services:
+  jenkins:
+    image: jenkins/jenkins
+    container_name: jenkins
+    privileged: true
+    user: root
+    environment:
+      - TZ=Asia/Taipei
+      - JAVA_OPTS=-Duser.timezone=Asia/Taipei
+    volumes:
+      - ./jenkins_data:/var/jenkins_home # 數據持久化
+      - /var/run/docker.sock:/var/run/docker.sock # 掛載本機 Docker 到 Jenkins 容器中使用
+    networks:
+      - jenkins
+    ports:
+      - 8080:8080
+      - 50000:50000
+    restart: always
+networks:
+  jenkins:
