@@ -22,20 +22,9 @@ pipeline {
             }
         }
 
-        stage('Install Dependencies') {
-            steps {
-                sh '''
-                    cd api_automation/star_wars
-                    python3 -m pip install poetry
-                    poetry install
-                '''
-            }
-        }
-
         stage('Run Tests') {
             steps {
                 sh '''
-                    cd api_automation/star_wars
                     poetry run pytest -v
                 '''
             }
