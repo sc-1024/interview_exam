@@ -4,6 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
+                git branch: 'test-docker-compose-ci',
                 git 'https://github.com/sc-1024/interview_exam.git'
             }
         }
