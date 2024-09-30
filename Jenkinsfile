@@ -8,14 +8,6 @@ pipeline {
             }
         }
 
-        stage('Build Docker Image') {
-            steps {
-                script {
-                    dockerImage = docker.build("api_automation")
-                }
-            }
-        }
-
         stage('Run Tests') {
             steps {
                 script {
